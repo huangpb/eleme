@@ -1,6 +1,7 @@
 # eleme
 
-> A Vue.js project
+仿饿了么项目   
+技术栈：vue-cli + vue-router + vuex + element-ui + axios，并搭配用 Node 写的 eleme-server 项目作为后台。
 
 ## Build Setup
 
@@ -8,8 +9,8 @@
 # install dependencies
 npm install
 
-# serve with hot reload at localhost:8080
-npm run dev
+# serve with hot reload at localhost:8000
+npm start
 
 # build for production with minification
 npm run build
