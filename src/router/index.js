@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+
+let comps = {
+  Home: () => require('@/pages/home/Home.vue').default
+}
 
 Vue.use(Router)
 
@@ -8,8 +11,23 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
+      name: 'Home',
+      component: comps.Home()
+    },
+    {
+      path: '/find',
+      name: 'Find',
+      component: comps.Home()
+    },
+    {
+      path: '/order',
+      name: 'Order',
+      component: comps.Home()
+    },
+    {
+      path: '/my',
+      name: 'My',
+      component: comps.Home()
     }
   ]
 })
