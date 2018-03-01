@@ -7,13 +7,29 @@
         <i :class="icons.down"></i>
       </div>
     </Header>
+    <SearchBar></SearchBar>
+    <Category></Category>
   </div>
 </template>
 
 <script>
+import SearchBar from './SearchBar.vue'
+import Category from './Category.vue'
+import {mapActions} from 'vuex'
+import axios from 'axios'
+
 export default {
   name: 'home',
-  components: {}
+  methods: Object.assign(
+    mapActions(['_fetchCategory'])
+  ),
+  components: {
+    SearchBar,
+    Category
+  },
+  created () {
+    this._fetchCategory()
+  }
 }
 </script>
 
@@ -28,7 +44,7 @@ export default {
     }
 
     .location {
-      font-size: 16px;
+      font-size: 17px;
     }
   }
 </style>

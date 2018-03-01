@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import { fetchCategory } from '@/api/homeApis'
 
 Vue.use(Vuex)
 
@@ -8,7 +9,15 @@ export default new Vuex.Store({
     count: 5
   },
   getters: {},
-  mutations: {},
-  actions: {},
+  mutations: {
+
+  },
+  actions: {
+    _fetchCategory ({state, getters, commit}) {
+      fetchCategory().then(res => {
+        console.log(res)
+      })
+    }
+  },
   plugins: []
 })

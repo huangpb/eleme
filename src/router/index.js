@@ -28,6 +28,11 @@ export default new Router({
       path: '/my',
       name: 'My',
       component: comps.Home()
+    },
+    {
+      path: '/search',
+      name: 'Search',
+      component: comps.Home()
     }
   ]
 })

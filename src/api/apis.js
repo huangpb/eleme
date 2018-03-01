@@ -1,3 +1,3 @@
-export default {
-  fetchUnits: '/auth/units'
+export const homeApis = {
+  fetchCategory: '/home/category'
 }

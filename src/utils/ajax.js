@@ -1,27 +1,27 @@
 import axios from 'axios'
-import tip from '@/components/tip/tip'
-import loading from '@/components/loading/loading'
+// import tip from '@/components/tip/tip'
+// import loading from '@/components/loading/loading'
+const constant = require('@/utils/constant')
 
-const host = '/api/v2';
+const host = constant.host
 
 Promise.prototype.always = function (callback) {
-  let P = this.constructor;
+  let P = this.constructor
   return this.then(
     value => P.resolve(callback())
       .then(() => value),
       reason => P.resolve(callback()).then(() => {
       throw reason
     })
-  );
-};
-
+  )
+}
 
 const baseAjax = axios.create({
   baseURL: host,
   timeout: 10000
-});
+})
 
-function argumentsHandler(url, opts = {}) {
+function argumentsHandler (url, opts = {}) {
   if (typeof url === 'string') {
     opts.url = url
   } else if (typeof url === 'object') {
@@ -40,18 +40,18 @@ function argumentsHandler(url, opts = {}) {
  * @param {Object} opts.params  GET请求参数
  * @param {Object} opts.data  POST、PUT、PATCH请求参数
  * */
-export default function ajax(url, opts) {
-  loading.show();
-  let options = argumentsHandler(url, opts);
+export default function ajax (url, opts) {
+  // loading.show();
+  let options = argumentsHandler(url, opts)
 
   return new Promise((resolve, reject) => {
     baseAjax(options)
       .then(res => {
         // console.log(res);
         if (res.status === 200) {
-          resolve(res.msg ? res.msg : res.data)
+          resolve(res.msg ? res.msg : JSON.parse(res.data))
         } else {
-          tip.fail(res.msg);
+          // tip.fail(res.msg);
         }
       })
       .catch(err => {
@@ -61,14 +61,6 @@ export default function ajax(url, opts) {
   })
     .always(() => {
       // console.log('完成')
-      loading.hide();
+      // loading.hide();
     })
 }
-
-
-
-
-
-
-
-
