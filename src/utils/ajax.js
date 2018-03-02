@@ -10,7 +10,7 @@ Promise.prototype.always = function (callback) {
   return this.then(
     value => P.resolve(callback())
       .then(() => value),
-      reason => P.resolve(callback()).then(() => {
+    reason => P.resolve(callback()).then(() => {
       throw reason
     })
   )
@@ -49,7 +49,7 @@ export default function ajax (url, opts) {
       .then(res => {
         // console.log(res);
         if (res.status === 200) {
-          resolve(res.msg ? res.msg : JSON.parse(res.data))
+          resolve(res.msg ? res.msg : res.data ? JSON.parse(res.data) : null)
         } else {
           // tip.fail(res.msg);
         }

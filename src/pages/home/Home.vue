@@ -8,27 +8,34 @@
       </div>
     </Header>
     <SearchBar></SearchBar>
-    <Category></Category>
+    <Category :homeCategory="homeCategory"></Category>
   </div>
 </template>
 
 <script>
 import SearchBar from './SearchBar.vue'
 import Category from './Category.vue'
-import {mapActions} from 'vuex'
-import axios from 'axios'
+import { mapState, mapActions } from 'vuex'
+import { actionTypes } from '@/store/types'
+
+const { fetchHomeCategory } = actionTypes
 
 export default {
   name: 'home',
+  computed: Object.assign(
+    mapState(['homeCategory'])
+  ),
   methods: Object.assign(
-    mapActions(['_fetchCategory'])
+    mapActions([fetchHomeCategory]),
+    {
+    }
   ),
   components: {
     SearchBar,
     Category
   },
   created () {
-    this._fetchCategory()
+    this[fetchHomeCategory]()
   }
 }
 </script>
