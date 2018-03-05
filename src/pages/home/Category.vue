@@ -3,24 +3,26 @@
        @touchstart="touchStart(e)"
        @touchmove="touchMove(e)">
     <div>
-      <div class="one-category"
-          v-for="(category, index1) in homeCategory"
-          v-show="index1 === active"
-          :key="index1">
-        <ul>
-          <li v-for="(line, index2) in category"
-              class="category-line"
-              :key="index2">
+      <transition-group name="slide">
+        <div class="one-category"
+             v-for="(category, index1) in homeCategory"
+             v-show="index1 === active"
+             :key="index1">
+          <ul>
+            <li v-for="(line, index2) in category"
+                class="category-line"
+                :key="index2">
               <router-link v-for="(item) in line"
                            to="/"
-                  class="category-item"
-                  :key="item.img">
+                           class="category-item"
+                           :key="item.img">
                 <img :src="require('../../assets/img/homeCategory/' + item.img)" alt="图标">
                 <span>{{item.name}}</span>
               </router-link>
-          </li>
-        </ul>
-      </div>
+            </li>
+          </ul>
+        </div>
+      </transition-group>
     </div>
     <div class="pagnation">
       <span class="item"
@@ -37,7 +39,9 @@ export default {
   props: {
     homeCategory: {
       type: Array,
-      default: []
+      default () {
+        return []
+      }
     }
   },
   data () {
@@ -72,8 +76,7 @@ export default {
         }
       }
     }
-  },
-  components: {}
+  }
 }
 </script>
 
@@ -121,5 +124,18 @@ export default {
         }
       }
     }
+  }
+
+  .slide-enter {
+    transform: translateX(100%);
+  }
+  .slide-enter-active, .slide-leave {
+    transform: translateX(0);
+  }
+  .slide-leave-active {
+    transform: translateX(-100%);
+  }
+  .slide-enter-active, .slide-leave-active {
+    transition: transform .5s linear;
   }
 </style>

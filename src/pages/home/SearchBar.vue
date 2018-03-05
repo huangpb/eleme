@@ -16,8 +16,9 @@ export default {
 
 <style lang="scss" scoped>
   @import "../../styles/base";
+
   .search-bar {
-    height: 51px;
+    height: $search-bar-height;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,6 +32,13 @@ export default {
       text-align: center;
       border-radius: 2px;
       font-size: 15px;
+    }
+
+    &.fixed {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 3;
     }
   }
 </style>

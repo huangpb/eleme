@@ -17,8 +17,12 @@ export default {
 </script>
 
 <style lang="scss">
+@import './styles/base';
+
 #app {
   width: 100%;
   height: 100%;
+  overflow: hidden;
+  padding-bottom: $footer-height;
 }
 </style>

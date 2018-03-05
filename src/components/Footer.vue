@@ -34,8 +34,9 @@ export default {
 
 <style lang="scss" scoped>
   @import '../styles/base';
+
   .footer {
-    height: 50px;
+    height: $footer-height;
     display: flex;
     justify-content: space-around;
     align-items: stretch;

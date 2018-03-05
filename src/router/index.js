@@ -2,7 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 let comps = {
-  Home: () => require('@/pages/home/Home.vue').default
+  Home: () => require('@/pages/home/Home.vue').default,
+  Find: () => require('@/pages/find/Find.vue').default
 }
 
 Vue.use(Router)
@@ -17,7 +18,7 @@ export default new Router({
     {
       path: '/find',
       name: 'Find',
-      component: comps.Home()
+      component: comps.Find()
     },
     {
       path: '/order',

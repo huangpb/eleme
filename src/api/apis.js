@@ -1,3 +1,4 @@
 export const homeApis = {
-  fetchCategory: '/home/category'
+  fetchCategory: '/home/category',
+  fetchShops: '/home/shops'
 }

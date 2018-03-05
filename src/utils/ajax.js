@@ -1,9 +1,9 @@
 import axios from 'axios'
 // import tip from '@/components/tip/tip'
 // import loading from '@/components/loading/loading'
-const constant = require('@/utils/constant')
+import constant from '@/utils/constant'
 
-const host = constant.host
+const { host } = constant
 
 Promise.prototype.always = function (callback) {
   let P = this.constructor

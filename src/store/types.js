@@ -1,7 +1,9 @@
 export const mutationTypes = {
-  changeHomeCategory: 'changeHomeCategory'
+  changeHomeCategory: 'changeHomeCategory',
+  changeHomeShops: 'changeHomeShops'
 }
 
 export const actionTypes = {
-  fetchHomeCategory: 'fetchHomeCategory'
+  fetchHomeCategory: 'fetchHomeCategory',
+  fetchHomeShops: 'fetchHomeShops'
 }

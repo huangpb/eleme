@@ -19,7 +19,8 @@ const icons = {
   returnTop: 'icon-fanhuidingbu',
   phone: 'icon-msnui-tel',
   back: 'icon-fanhui',
-  down: 'icon-zhcc_xiangxiajiantou'
+  down: 'icon-zhcc_xiangxiajiantou',
+  up: 'icon-zhcc_xiangshangjiantou'
 }
 
 for (let name in icons) {
